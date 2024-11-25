@@ -1,7 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        'new_slave'
+        }
      tools {
-        maven 'maven3' 
+        maven 'maven3'
         }
     stages {
         stage("Test"){
@@ -23,7 +25,7 @@ pipeline {
         stage("Deploy on Test"){
             steps{
                 // deploy on container -> plugin
-                deploy adapters: [tomcat9(credentialsId: 'tomcattest', path: '', url: 'http://13.232.61.38:8080')], contextPath: '/test', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'tomcat_testuser', path: '', url: 'http://13.201.77.145:8080')], contextPath: '/janatest', war: '**/*.war'
               
             }
             
@@ -36,7 +38,7 @@ pipeline {
             
             steps{
                 // deploy on container -> plugin
-                deploy adapters: [tomcat9(credentialsId: 'tomcatprod', path: '', url: 'http://13.232.61.38:8080')], contextPath: '/samprod', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'tomcat_janaprod', path: '', url: 'http://13.201.77.145:8080')], contextPath: '/janaprod', war: '**/*.war'
 
             }
         }
