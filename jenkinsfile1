@@ -1,6 +1,6 @@
-1pipeline {
+pipeline {
     agent {
-        'new_slave'
+        label 'new_slave'
         }
      tools {
         maven 'maven3'
