@@ -38,7 +38,7 @@ pipeline {
             
             steps{
                 // deploy on container -> plugin
-                deploy adapters: [tomcat9(credentialsId: 'tomcat_janaprod', path: '', url: 'http://13.201.77.145:8080')], contextPath: '/janaprod', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'tomcat_produser', path: '', url: 'http://13.201.77.145:8080')], contextPath: '/janaprod', war: '**/*.war'
 
             }
         }
