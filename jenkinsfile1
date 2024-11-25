@@ -1,4 +1,4 @@
-1pipeline {
+pipeline {
     agent {
         label 'slave_new'
         }
