@@ -48,7 +48,7 @@ pipeline {
             echo "========always========"
         }
         success{
-            echo "========pipeline executed successfully done log ========"
+            echo "========pipeline executed successfully done========"
 
         }
         failure{
