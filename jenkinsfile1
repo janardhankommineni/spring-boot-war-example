@@ -1,4 +1,4 @@
-1pipeline {
+pipeline {
     agent {
         label 'slavenode'
         }
@@ -48,7 +48,7 @@
             echo "========always========"
         }
         success{
-            echo "========pipeline executed successfully ========"
+            echo "========pipeline executed successfully done ========"
 
         }
         failure{
