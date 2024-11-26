@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'nodeslave25'
+        label 'slavenode'
         }
      tools {
         maven 'maven3'
@@ -25,7 +25,7 @@ pipeline {
         stage("Deploy on Test"){
             steps{
                 // deploy on container -> plugin
-                deploy adapters: [tomcat9(credentialsId: 'tomcatuser', path: '', url: 'http://43.204.140.107:8080')], contextPath: '/janatest', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'tomcatuser', path: '', url: 'http://35.154.187.57:8080')], contextPath: '/janatest', war: '**/*.war'
               
             }
             
@@ -38,7 +38,7 @@ pipeline {
             
             steps{
                 // deploy on container -> plugin
-                deploy adapters: [tomcat9(credentialsId: 'tomcatuser', path: '', url: 'http://43.204.140.107:8080')], contextPath: '/janaprod', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'tomcatuser', path: '', url: 'http://35.154.187.57:8080')], contextPath: '/janaprod', war: '**/*.war'
 
             }
         }
